@@ -214,7 +214,7 @@ MonoBehaviour:
     type: 3}
   backgroundPrefab: {fileID: 309077018747520597, guid: d5c93237dbd5ca3449ab16f196cb64a7,
     type: 3}
-  repeatRate2: 2
+  repeatRate2: 3.7
 --- !u!4 &318642947
 Transform:
   m_ObjectHideFlags: 0
