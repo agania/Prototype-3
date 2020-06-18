@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7936769126100516392}
   - component: {fileID: 6399509712066008968}
   m_Layer: 0
-  m_Name: L Hand Presence
+  m_Name: Left Hand Presence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -14,11 +14,20 @@ public class HandPresence : MonoBehaviour
     private GameObject spawnedContoller;
     private GameObject spawnedHandModel;
     private Animator handAnimator;
+    private float jumpForce = 22.0f;
+    private float gravityModifier = 2.0f;
+    private GameObject player;
+    private Rigidbody playerRB;
+
 
     // Start is called before the first frame update
     void Start()
     {
         TryInitialize();
+        player = GameObject.FindWithTag("Player");
+        playerRB = player.GetComponent<Rigidbody>();
+        Physics.gravity *= gravityModifier;
+
     }
 
     void UpdateHandAnimation()
@@ -41,7 +50,7 @@ public class HandPresence : MonoBehaviour
         }
     }
 
-    void TryInitialize()
+    public void TryInitialize()
     {
         List<InputDevice> devices = new List<InputDevice>();
         InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
@@ -93,16 +102,21 @@ public class HandPresence : MonoBehaviour
 
 
 
-        /*        targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue);
-                if (primaryButtonValue)
-                    Debug.Log("Nacisnieto glowny przycisk");
+        targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue);
+        if (primaryButtonValue &&  player.transform.position.y < 0.05f )
+        {
+            Debug.Log("Nacisnieto glowny przycisk");
+            playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
 
-                targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
-                if (triggerValue > 0.01f)
-                    Debug.Log("Nacinieto spust: " + triggerValue);
 
-                targetDevice.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 primary2DAxisValue);
-                if (primary2DAxisValue != Vector2.zero)
-                    Debug.Log("Glowny joystick: " + primary2DAxisValue);*/
+        /*       targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
+               if (triggerValue > 0.01f)
+                   Debug.Log("Nacinieto spust: " + triggerValue);
+
+               targetDevice.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 primary2DAxisValue);
+               if (primary2DAxisValue != Vector2.zero)
+                   Debug.Log("Glowny joystick: " + primary2DAxisValue);*/
     }
+
 }
