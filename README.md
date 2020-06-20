@@ -7,3 +7,5 @@ Its based on this tutorial
 https://www.youtube.com/watch?v=gGYtahQjmWQ&t=473s
 
 Aldegard vel Agania vel Piotr
+
+ahh and Girls Im sorry about "wyjebane paczki" some of you might actualy understund it :P - I was quite frustrated with github integration with unity at that moment so .....
